@@ -1,0 +1,5 @@
+* have a mongoDB database with collection named : users
+* open a terminal in server and run : server/ npm start
+* open a terminal in public and run: public/ yarn start
+
+first start server and then public .. i.e, first do npm start!!
