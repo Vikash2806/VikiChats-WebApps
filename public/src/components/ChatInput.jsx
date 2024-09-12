@@ -5,23 +5,28 @@ import styled from "styled-components";
 import Picker from "emoji-picker-react";
 
 export default function ChatInput({ handleSendMsg }) {
-  const [msg, setMsg] = useState("");
-  const [showEmojiPicker, setShowEmojiPicker] = useState(false);
+  const [msg, setMsg] = useState("");// State to hold the message being typed
+  const [showEmojiPicker, setShowEmojiPicker] = useState(false);// State to toggle emoji picker visibility
+
+    // Function to toggle the visibility of the emoji picker
   const handleEmojiPickerhideShow = () => {
     setShowEmojiPicker(!showEmojiPicker);
   };
 
+  // Function to handle when an emoji is clicked in the emoji picker
   const handleEmojiClick = (event, emojiObject) => {
-    let message = msg;
-    message += emojiObject.emoji;
-    setMsg(message);
+    let message = msg;// Get the current message text
+    message += emojiObject.emoji;// Add the selected emoji to the message
+    setMsg(message);// Update the message state with the new emoji
   };
 
+
+  // Function to handle sending the message
   const sendChat = (event) => {
     event.preventDefault();
-    if (msg.length > 0) {
-      handleSendMsg(msg);
-      setMsg("");
+    if (msg.length > 0) {// Check if the message is not empty
+      handleSendMsg(msg);// Call the handleSendMsg function passed as a prop with the message
+      setMsg("");// Clear the message input after sending
     }
   };
 

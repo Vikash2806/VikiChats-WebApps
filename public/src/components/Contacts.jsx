@@ -4,22 +4,30 @@ import Logo from "../assets/logo.svg";
 import avatar1 from "../avatars/avatar1.png";
 import avatar3 from "../avatars/avatar3.png";
 
+
+// Define the Contacts component
 export default function Contacts({ contacts, changeChat }) {
+  // State to hold the current user's name
   const [currentUserName, setCurrentUserName] = useState(undefined);
+  // State to hold the current user's avatar image
   const [currentUserImage, setCurrentUserImage] = useState(undefined);
+  // State to keep track of the currently selected contact
   const [currentSelected, setCurrentSelected] = useState(undefined);
 
   
-
+ // useEffect hook to fetch user data from local storage when the component mounts
   useEffect(() => {
     const fetchData = async () => {
       try {
+          // Retrieve user data from local storage
         const data = await JSON.parse(
           localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)
         );
+         // Update state with user data
         setCurrentUserName(data.username);
         setCurrentUserImage(data.avatarImage);
       } catch (error) {
+          // Log an error if there's an issue with fetching user data
         console.error("Error fetching user data:", error);
       }
     };
@@ -27,9 +35,10 @@ export default function Contacts({ contacts, changeChat }) {
     fetchData();
   }, []); // Include [] in the dependency array for initial fetch only
 
+  // Function to handle contact selection and change the current chat
   const changeCurrentChat = (index, contact) => {
-    setCurrentSelected(index);
-    changeChat(contact);
+    setCurrentSelected(index);// Update the selected contact index
+    changeChat(contact); // Call the changeChat function with the selected contact
   };
 
   return (
