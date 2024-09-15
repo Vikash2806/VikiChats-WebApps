@@ -15,4 +15,5 @@ const {
   router.get("/logout/:id", logOut);
   
   module.exports = router;
+  //same as auth.js
   
