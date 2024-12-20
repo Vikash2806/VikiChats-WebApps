@@ -8,8 +8,14 @@ VikiChats(Instant-Connect) : Real-Time Messaging Platform
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 How to Start : 
 
-* open a terminal in server and run : server/ npm start
-* open a terminal in public and run: public/ yarn start
+* open a terminal in server and run : server/
+  ```
+  npm start
+  ```
+* open a terminal in public and run: public/
+  ```
+  yarn start
+  ```
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
